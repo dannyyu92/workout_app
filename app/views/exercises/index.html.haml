@@ -1,0 +1,9 @@
+.header-padding
+  .container
+    -@exercises.each do |e|
+      %p
+      ID: #{e.id}
+      %br
+      Name: #{e.name}
+      %br
+      Muscle Group: #{e.muscle_group}
