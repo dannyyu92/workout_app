@@ -1,9 +1,25 @@
 .header-padding
   .container
+    -if flash[:notice].present?
+      .alert.alert-info
+        =flash[:notice]
+    = form_for @exercise do |e|
+      .col-xs-6
+        =e.text_field :name, placeholder: "Add an exercise", id: "exercise-text", class: "form-control", autofocus: "autofocus"
+      .col-xs-3
+        =e.collection_select :muscle_group, Exercise.MUSCLE_GROUPS, :to_s, :to_s, {:include_blank => "Select A Muscle Group"}, {class: "form-control"}
+      .col-xs-3
+        =e.submit "Submit", class: "btn btn-default btn-primary"
+      =e.submit "Submit", class: "hidden"
+    .exercise-list
     -@exercises.each do |e|
-      %p
-      ID: #{e.id}
-      %br
-      Name: #{e.name}
-      %br
-      Muscle Group: #{e.muscle_group}
+      .col-xs-6
+        %p.text-left
+          %h2
+            #{e.muscle_group}
+          =link_to edit_exercise_path(e), class: "btn btn-default btn-sm" do
+            %i.fa.fa-edit.fa-fw
+          =link_to e, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm" do
+            %i.fa.fa-trash-o.fa-fw
+          %h4
+            #{e.name}

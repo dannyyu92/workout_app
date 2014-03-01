@@ -1,5 +1,6 @@
 class ExercisesController < ApplicationController
   def index
+    @exercise = Exercise.new
     @exercises = Exercise.all
   end
 
@@ -25,16 +26,16 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      redirect_to @exercise, notice: "Exercise successfully created"
+      redirect_to exercises_path, notice: "Exercise successfully created"
     else
-      render action: "new"
+      redirect_to exercises_path, notice: "Error: Exercise needs a name and muscle group!"
     end
   end
 
   def update
     @exercise = Exercise.find(params[:id])
     if @exercise.update_attributes(exercise_params)
-      redirect_to @exercise, notice: "Exercise successfully updated"
+      redirect_to exercises_path, notice: "Exercise successfully updated"
     else
       render action: "edit"
     end
