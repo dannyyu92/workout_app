@@ -1,6 +1,7 @@
 .header-padding
   .container
-    %p{ id: "notice" }= flash[:notice]
+    -if flash[:notice].present?
+      = flash[:notice]
     %p
     = @exercise.id
     %br

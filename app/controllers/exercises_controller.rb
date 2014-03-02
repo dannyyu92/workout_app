@@ -2,6 +2,14 @@ class ExercisesController < ApplicationController
   def index
     @exercise = Exercise.new
     @exercises = Exercise.all
+
+    @abdominals = Exercise.where(:muscle_group => "Abdominals")
+    @arms = Exercise.where(:muscle_group => "Arms")
+    @back = Exercise.where(:muscle_group => "Back")
+    @chest = Exercise.where(:muscle_group => "Chest")
+    @legs = Exercise.where(:muscle_group => "Legs")
+    @shoulders = Exercise.where(:muscle_group => "Shoulders")
+    @ALL_EXERCISES = [@abdominals, @arms, @back, @chest, @legs, @shoulders]
   end
 
   def new
@@ -20,7 +28,7 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find(params[:id])
     @exercise.destroy
 
-    redirect_to exercises_url
+    redirect_to exercises_url, notice: "Exercise successfully deleted"
   end
 
   def create

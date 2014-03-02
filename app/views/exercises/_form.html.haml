@@ -1,9 +1,10 @@
 = form_for @exercise do |e|
   %p
     = e.label :name
-    = e.text_field :name
+    = e.text_field :name, class: "form-control", style: "width:400px"
   %p
     = e.label :muscle_group
-    = e.collection_select :muscle_group, Exercise.MUSCLE_GROUPS, :to_s, :to_s, :include_blank => "Select A Group"
+    = e.collection_select :muscle_group, Exercise.MUSCLE_GROUPS, :to_s, :to_s, {:include_blank => "Select A Group"}, {class: "form-control", style: "width:400px"}
   %p
-    = e.submit "Submit", :class => "btn btn-default btn-lg"
+    = e.submit "Submit", :class => "btn btn-default btn-md"
+    = link_to "Back", exercises_path, class:"btn btn-default btn-md"
