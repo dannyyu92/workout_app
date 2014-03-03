@@ -6,5 +6,16 @@
     = e.label :muscle_group
     = e.collection_select :muscle_group, Exercise.MUSCLE_GROUPS, :to_s, :to_s, {:include_blank => "Select A Group"}, {class: "form-control", style: "width:400px"}
   %p
+    = e.fields_for(:ex_sets) do |builder|
+      %p
+        = builder.label :sets
+        = builder.text_field :sets, class: "form-control", style: "width:400px"
+      %p
+        = builder.label :reps
+        = builder.text_field :reps, class: "form-control", style: "width:400px"
+      %p
+        = builder.label :weight
+        = builder.text_field :weight, class: "form-control", style: "width:400px"
+  %p
     = e.submit "Submit", :class => "btn btn-default btn-md"
     = link_to "Back", exercises_path, class:"btn btn-default btn-md"

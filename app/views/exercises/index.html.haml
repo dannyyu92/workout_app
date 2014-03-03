@@ -7,12 +7,19 @@
       .col-xs-3
         =e.collection_select :muscle_group, Exercise.MUSCLE_GROUPS, :to_s, :to_s, {:include_blank => "Select A Muscle Group"}, {class: "form-control"}
       .col-xs-6
-        =e.text_field :name, placeholder: "Add an exercise", id: "exercise-text", class: "form-control", autofocus: "autofocus"
+        =e.fields_for :ex_sets do |builder|
+          .col-xs-4
+            = builder.text_field :sets, placeholder: "Sets", class: "form-control"
+          .col-xs-4
+            = builder.text_field :reps, placeholder: "Reps", class: "form-control"
+          .col-xs-4
+            = builder.text_field :weight, placeholder: "Weight", class: "form-control"
       .col-xs-3
+        =e.text_field :name, placeholder: "Add an exercise", id: "exercise-text", class: "form-control", autofocus: "autofocus"
       =e.submit "Submit", class: "hidden"
     .exercise-list.container
       .col-lg-12.col-sm-12.col-xs-12
-        /O(n^2) solution... Maybe temporary, data set is small.
+        /O(n^3) solution... Maybe temporary, data set is small so it's kinda okay.
         -@ALL_EXERCISES.each do |mgroup|
           -if mgroup.present?
             .co-lg-6.col-sm-6.col-xs-12
@@ -23,6 +30,12 @@
                   .col-lg-8.col-sm-8.col-xs-12
                     %h5
                       #{x.name}
+                    %h6
+                      - x.ex_sets.each do |data|
+                        %p
+                          Sets: #{data.sets}
+                          Reps: #{data.reps}
+                          Weight: #{data.weight} lbs
                   .col-lg-4.col-sm-4.col-xs-12
                     =link_to edit_exercise_path(x), class: "btn btn-default btn-sm" do
                       %i.fa.fa-edit.fa-fw

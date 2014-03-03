@@ -8,3 +8,10 @@
     = @exercise.name
     %br
     = @exercise.muscle_group
+    - @exercise.ex_sets.each do |data|
+      %br
+      =data.sets
+      %br
+      =data.reps
+      %br
+      =data.weight

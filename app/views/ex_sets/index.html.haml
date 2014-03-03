@@ -1,0 +1,23 @@
+%h1 Listing ex_sets
+
+%table
+  %tr
+    %th Sets
+    %th Reps
+    %th Weight
+    %th
+    %th
+    %th
+
+  - @ex_sets.each do |ex_set|
+    %tr
+      %td= ex_set.sets
+      %td= ex_set.reps
+      %td= ex_set.weight
+      %td= link_to 'Show', ex_set
+      %td= link_to 'Edit', edit_ex_set_path(ex_set)
+      %td= link_to 'Destroy', ex_set, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ex set', new_ex_set_path

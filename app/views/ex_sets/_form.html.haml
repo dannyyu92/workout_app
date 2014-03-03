@@ -1,0 +1,19 @@
+= form_for @ex_set do |f|
+  - if @ex_set.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ex_set.errors.count, "error")} prohibited this ex_set from being saved:"
+      %ul
+        - @ex_set.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :sets
+    = f.number_field :sets
+  .field
+    = f.label :reps
+    = f.number_field :reps
+  .field
+    = f.label :weight
+    = f.text_field :weight
+  .actions
+    = f.submit 'Save'

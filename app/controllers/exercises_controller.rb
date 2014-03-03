@@ -2,6 +2,7 @@ class ExercisesController < ApplicationController
   def index
     @exercise = Exercise.new
     @exercises = Exercise.all
+    @exercise.ex_sets.build
 
     @abdominals = Exercise.where(:muscle_group => "Abdominals")
     @arms = Exercise.where(:muscle_group => "Arms")
@@ -14,6 +15,7 @@ class ExercisesController < ApplicationController
 
   def new
     @exercise = Exercise.new
+    @exercise.ex_sets.build
   end
 
   def show
@@ -36,7 +38,7 @@ class ExercisesController < ApplicationController
     if @exercise.save
       redirect_to exercises_path, notice: "Exercise successfully created"
     else
-      redirect_to exercises_path, notice: "Error: Exercise needs a name and muscle group!"
+      redirect_to exercises_path, notice: "Error: Exercise missing fields!"
     end
   end
 
@@ -51,6 +53,6 @@ class ExercisesController < ApplicationController
 
   private
   def exercise_params
-    params.require(:exercise).permit(:name, :muscle_group)
+    params.require(:exercise).permit(:name, :muscle_group, ex_sets_attributes: [:id, :sets, :reps, :weight])
   end
 end
