@@ -11,9 +11,4 @@
 
     .collapse.navbar-collapse.navbar-right.navbar-ex-1-collapse
       %ul{class: "nav navbar-nav"}
-        %li
-          =link_to "Sign Up", "#"
-        %li
-          =link_to "Login", "#"
-        %li
-          =link_to "Contact", "#"
+        = render 'layouts/navigation_links'

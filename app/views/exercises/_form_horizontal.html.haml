@@ -1,0 +1,14 @@
+= form_for @exercise do |e|
+  .col-xs-3
+    =e.collection_select :muscle_group, Exercise.MUSCLE_GROUPS, :to_s, :to_s, {:include_blank => "Select A Muscle Group"}, {class: "form-control"}
+  .col-xs-6
+    =e.fields_for :ex_sets do |builder|
+      .col-xs-4
+        = builder.text_field :sets, placeholder: "Sets", class: "form-control", id: "sets-text"
+      .col-xs-4
+        = builder.text_field :reps, placeholder: "Reps", class: "form-control", id: "reps-text"
+      .col-xs-4
+        = builder.text_field :weight, placeholder: "Weight", class: "form-control", id: "weight-text"
+  .col-xs-3
+    =e.text_field :name, placeholder: "Add an exercise", id: "exercise-text", class: "form-control", autofocus: "autofocus"
+  =e.submit "Submit", class: "hidden"

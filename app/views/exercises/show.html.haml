@@ -1,7 +1,6 @@
 .header-padding
   .container
-    -if flash[:notice].present?
-      = flash[:notice]
+    = render 'layouts/messages'
     %p
     = @exercise.id
     %br

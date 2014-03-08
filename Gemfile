@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 group :development, :test do
+  gem 'rails_layout'
   gem 'sqlite3', '1.3.8'
   #mute asset pipeline
   gem 'quiet_assets'
