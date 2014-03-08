@@ -13,6 +13,9 @@ group :development, :test do
   gem 'sqlite3', '1.3.8'
   #mute asset pipeline
   gem 'quiet_assets'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'better_errors'
 end
 
 group :production do

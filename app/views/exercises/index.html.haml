@@ -9,11 +9,11 @@
       .col-xs-6
         =e.fields_for :ex_sets do |builder|
           .col-xs-4
-            = builder.text_field :sets, placeholder: "Sets", class: "form-control"
+            = builder.text_field :sets, placeholder: "Sets", class: "form-control", id: "sets-text"
           .col-xs-4
-            = builder.text_field :reps, placeholder: "Reps", class: "form-control"
+            = builder.text_field :reps, placeholder: "Reps", class: "form-control", id: "reps-text"
           .col-xs-4
-            = builder.text_field :weight, placeholder: "Weight", class: "form-control"
+            = builder.text_field :weight, placeholder: "Weight", class: "form-control", id: "weight-text"
       .col-xs-3
         =e.text_field :name, placeholder: "Add an exercise", id: "exercise-text", class: "form-control", autofocus: "autofocus"
       =e.submit "Submit", class: "hidden"
@@ -25,19 +25,19 @@
             .co-lg-6.col-sm-6.col-xs-12
               %h2
                 #{mgroup.first.muscle_group}
-              -mgroup.each do |x|
+              -mgroup.each do |exercise|
                 %p
                   .col-lg-8.col-sm-8.col-xs-12
                     %h5
-                      #{x.name}
+                      #{exercise.name}
                     %h6
-                      - x.ex_sets.each do |data|
+                      - exercise.ex_sets.each do |data|
                         %p
                           Sets: #{data.sets}
                           Reps: #{data.reps}
                           Weight: #{data.weight} lbs
                   .col-lg-4.col-sm-4.col-xs-12
-                    =link_to edit_exercise_path(x), class: "btn btn-default btn-sm" do
+                    =link_to edit_exercise_path(exercise), class: "btn btn-default btn-sm", id: "#{exercise.name}-edit" do
                       %i.fa.fa-edit.fa-fw
-                    =link_to x, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm" do
+                    =link_to exercise, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm", id: "#{exercise.name}-delete" do
                       %i.fa.fa-trash-o.fa-fw
