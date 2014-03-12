@@ -8,6 +8,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'stripe'
 
 group :development, :test do
   gem 'rails_layout'

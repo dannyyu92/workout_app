@@ -22,3 +22,6 @@ doc/
 ## Environment normalisation:
 /.bundle
 /vendor/bundle
+
+# Ignore API keys
+/config/initializers/stripe.rb

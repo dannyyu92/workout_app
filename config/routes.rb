@@ -8,6 +8,7 @@ WorkoutApp::Application.routes.draw do
   resources :exercises do
     resources :ex_sets
   end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

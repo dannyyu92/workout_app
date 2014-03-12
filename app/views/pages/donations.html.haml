@@ -1,0 +1,15 @@
+.header-padding
+  .container
+    .stripe-billing-info
+      %p
+        = label_tag "Credit Card Number"
+        = text_field_tag :credit_card_number, nil, name:nil, size: "20", placeholder: "Credit Card #", class: "form-control", data: { stripe: "number" }
+      %p
+        = label_tag "CVC"
+        = text_field_tag :cvc, nil, name:nil, size: "20", placeholder: "CVC", class: "form-control", data: { stripe: "cvc" }
+      %p
+        = label_tag "Expiration (MMYYYY)"
+        = select_month nil, { use_month_numbers: true }, { name:nil, id: "exp-month", class: "form-control", data: {stripe: "exp-month" } }
+        = select_year nil, { start_year: Date.today.year, end_year: Date.today.year+15 }, {name:nil, id: "exp-year", class: "form-control", data: { stripe: "exp-year" } }
+      %p
+        = button_tag "Submit", name:nil
