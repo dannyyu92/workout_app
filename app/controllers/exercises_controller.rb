@@ -4,13 +4,9 @@ class ExercisesController < ApplicationController
     @exercises = Exercise.all
     @exercise.ex_sets.build
 
-    @abdominals = Exercise.where(:muscle_group => "Abdominals")
-    @arms = Exercise.where(:muscle_group => "Arms")
-    @back = Exercise.where(:muscle_group => "Back")
-    @chest = Exercise.where(:muscle_group => "Chest")
-    @legs = Exercise.where(:muscle_group => "Legs")
-    @shoulders = Exercise.where(:muscle_group => "Shoulders")
-    @ALL_EXERCISES = [@abdominals, @arms, @back, @chest, @legs, @shoulders]
+    @all_exercises = @exercises.group_by(&:muscle_group)
+
+
   end
 
   def new

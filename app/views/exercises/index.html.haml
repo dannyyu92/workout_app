@@ -4,25 +4,24 @@
     = render 'form_horizontal'
     .exercise-list.container
       .col-lg-12.col-sm-12.col-xs-12
-        /O(n^3) solution... Maybe temporary, data set is small so it's kinda okay.
-        -@ALL_EXERCISES.each do |mgroup|
-          -if mgroup.present?
-            .co-lg-6.col-sm-6.col-xs-12
-              %h2
-                #{mgroup.first.muscle_group}
-              -mgroup.each do |exercise|
-                %p
-                  .col-lg-8.col-sm-8.col-xs-12
-                    %h5
-                      #{exercise.name}
-                    %h6
-                      - exercise.ex_sets.each do |data|
-                        %p
-                          Sets: #{data.sets}
-                          Reps: #{data.reps}
-                          Weight: #{data.weight} lbs
-                  .col-lg-4.col-sm-4.col-xs-12
-                    =link_to edit_exercise_path(exercise), class: "btn btn-default btn-sm", id: "#{exercise.name}-edit" do
-                      %i.fa.fa-edit.fa-fw
-                    =link_to exercise, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm", id: "#{exercise.name}-delete" do
-                      %i.fa.fa-trash-o.fa-fw
+      - Exercise.MUSCLE_GROUPS.each do |mgroup|
+        -unless @all_exercises[mgroup].nil?
+          .co-lg-6.col-sm-6.col-xs-12
+            %h2
+              #{mgroup}
+            - @all_exercises[mgroup].each do |exercise|
+              %p
+                .col-lg-8.col-sm-8.col-xs-12
+                  %h5
+                    #{exercise.name}
+                  %h6
+                    - exercise.ex_sets.each do |data|
+                      %p
+                        Sets: #{data.sets}
+                        Reps: #{data.reps}
+                        Weight: #{data.weight} lbs
+                .col-lg-4.col-sm-4.col-xs-12
+                  =link_to edit_exercise_path(exercise), class: "btn btn-default btn-sm", id: "#{exercise.name}-edit" do
+                    %i.fa.fa-edit.fa-fw
+                  =link_to exercise, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm", id: "#{exercise.name}-delete" do
+                    %i.fa.fa-trash-o.fa-fw
