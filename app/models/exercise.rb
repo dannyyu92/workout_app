@@ -6,8 +6,4 @@ class Exercise < ActiveRecord::Base
   def self.MUSCLE_GROUPS
     ["Abdominals", "Arms", "Back", "Chest", "Legs", "Shoulders"]
   end
-
-  def self.build_exercise(params)
-    exercise = Exerise.new(params)
-  end
 end

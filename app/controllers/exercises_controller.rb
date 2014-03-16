@@ -4,9 +4,7 @@ class ExercisesController < ApplicationController
     @exercises = Exercise.all
     @exercise.ex_sets.build
 
-    @all_exercises = @exercises.group_by(&:muscle_group)
-
-
+    @all_exercises = @exercises.includes(:ex_sets).group_by(&:muscle_group)
   end
 
   def new
