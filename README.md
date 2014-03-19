@@ -12,7 +12,6 @@ It includes
 Front End:
 * Bootstrap 3
 * Font Awesome
-* Start Bootstrap's "Landing Page" (Modified)
 * Rails layout gem for ease/organization
 * High_voltage static pages
 
@@ -29,3 +28,4 @@ Soon to add:
 * Omniauth facebook login
 * Allow data to change dynamically on screen
 * Stripe billing & donations page
+* Backend API
