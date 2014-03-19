@@ -1,12 +1,66 @@
-// import the CSS framework
+// Fonts
+@import url(http://fonts.googleapis.com/css?family=Lato);
+$font-family-base: "Lato";
+
+// Colors
+$gray: lighten(#000, 33.5%);
+$gray-light: lighten(#000, 60%);
+
+// Navbar overrides
+$navbar-height: 70px;
+$navbar-default-bg: #FFF;
+$navbar-margin-bottom: none;
+
+a#navbar-brand {
+  font-size: 3.2em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
+
+// Button overrides
+// $btn-font-weight: normal;
+
+// Landing page
+.intro {
+  background-image:url("./intro-bg.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:570px;
+  padding-top:200px;
+  .headlines {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    color: #FFF;
+    span#headlineOne {
+      font-size:2.9em; 
+    }
+    span#headlineTwo {
+      font-size:2em; 
+    }
+  }
+}
+
+// Footer
+footer {
+  margin-top:20px;
+  li a{
+    font-size:0.9em;
+    color:$gray-light;
+    &:hover {
+      text-decoration:none;
+      color:$gray;
+    }
+  }
+}
+
+// Import the CSS framework
 @import "bootstrap";
 
-// make all images responsive by default
+// Make all images responsive by default
 img {
   @extend .img-responsive;
   margin: 0 auto;
-}
-
-.exercise-list {
-  padding-top:30px;
 }

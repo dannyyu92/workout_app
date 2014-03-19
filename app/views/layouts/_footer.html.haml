@@ -1,11 +1,11 @@
 %footer
   .container
-    .row
-      .col-lg-12
-        %ul{ class: "list-inline" }
-          %li= link_to "Home", "#"
-          %li{ class: "footer-menu-divider" } &sdot;
-          %li= link_to "About", "#"
-          %li{ class: "footer-menu-divider" } &sdot;
-          %li= link_to "Contact", "#"
-        %p{ class: "copyright text-muted small" } Ruby on Rails App by Danny Yu
+    %ul.list-inline.pull-right
+      %li
+        = link_to "HOME", root_path
+      %li
+        = link_to "ABOUT", "#"
+      %li
+        = link_to "CONTACT", "#"
+    %p.text-muted.medium
+      &copy; Danny Yu 2014

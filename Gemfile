@@ -7,6 +7,7 @@ gem 'high_voltage', '~> 2.1.0'
 gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'sass', '3.2.13'
 gem 'font-awesome-rails'
 gem 'stripe'
 
