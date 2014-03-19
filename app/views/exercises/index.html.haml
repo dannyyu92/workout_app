@@ -2,15 +2,15 @@
 .container
   = render 'form_horizontal'
   .exercise-list
-    .col-lg-12.col-sm-12.col-xs-12
+    .col-md-12.col-sm-12.col-xs-12
     - Exercise.MUSCLE_GROUPS.each do |mgroup|
       -unless @all_exercises[mgroup].nil?
-        .co-lg-6.col-sm-6.col-xs-12
+        .co-md-6.col-sm-6.col-xs-12
           %h2
             #{mgroup}
           - @all_exercises[mgroup].each do |exercise|
             %p
-              .col-lg-8.col-sm-8.col-xs-12
+              .col-md-8.col-sm-8.col-xs-8
                 %h5
                   #{exercise.name}
                 %h6
@@ -19,7 +19,7 @@
                       Sets: #{data.sets}
                       Reps: #{data.reps}
                       Weight: #{data.weight} lbs
-              .col-lg-4.col-sm-4.col-xs-12
+              .col-md-4.col-sm-4.col-xs-4
                 =link_to edit_exercise_path(exercise), class: "btn btn-default btn-sm", id: "#{exercise.name}-edit" do
                   %i.fa.fa-edit.fa-fw
                 =link_to exercise, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm", id: "#{exercise.name}-delete" do

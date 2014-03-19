@@ -12,6 +12,7 @@ $navbar-default-bg: #FFF;
 $navbar-margin-bottom: none;
 
 a#navbar-brand {
+  margin-left:10px;
   font-size: 3.2em;
   font-weight: bold;
   text-decoration: none;
@@ -23,6 +24,7 @@ a#navbar-brand {
 
 // Button overrides
 // $btn-font-weight: normal;
+$btn-default-bg: #FFF;
 
 // Landing page
 .intro {
