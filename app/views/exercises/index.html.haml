@@ -13,6 +13,8 @@
               .col-md-8.col-sm-8.col-xs-8
                 %h5
                   #{exercise.name}
+                  -#%i.fa.fa-edit.fa-fw
+                  -#%i.fa.fa-trash-o.fa-fw
                 %h6
                   - exercise.ex_sets.each do |data|
                     %p
@@ -20,7 +22,7 @@
                       Reps: #{data.reps}
                       Weight: #{data.weight} lbs
               .col-md-4.col-sm-4.col-xs-4
-                =link_to edit_exercise_path(exercise), class: "btn btn-default btn-sm", id: "#{exercise.name}-edit" do
+                =link_to edit_user_exercise_path(current_user, exercise), class: "btn btn-default btn-sm", id: "#{exercise.name}-edit" do
                   %i.fa.fa-edit.fa-fw
-                =link_to exercise, method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm", id: "#{exercise.name}-delete" do
+                =link_to user_exercise_path(current_user, exercise), method: :delete, data: {confirm: "Are you sure? "}, class: "btn btn-default btn-sm", id: "#{exercise.name}-delete" do
                   %i.fa.fa-trash-o.fa-fw

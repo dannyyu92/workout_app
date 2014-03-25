@@ -1,4 +1,7 @@
 WorkoutApp::Application.configure do
+  # For Devise mailer
+  config.action_mailer.default_url_options = { :host => 'swole-app.heroku.com' }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

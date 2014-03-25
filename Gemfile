@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'sass', '3.2.13'
 gem 'font-awesome-rails'
 gem 'stripe'
+gem 'devise'
 
 group :development, :test do
   gem 'rails_layout'

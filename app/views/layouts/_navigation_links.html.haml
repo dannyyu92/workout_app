@@ -1,6 +1,12 @@
-%li
-  =link_to "SIGN UP", "#"
-%li
-  =link_to "LOGIN", "#"
-%li
-  =link_to "CONTACT", "#"
+- unless user_signed_in?
+  %li
+    =link_to "SIGN UP", new_user_registration_path  
+  %li
+    =link_to "LOGIN", new_user_session_path
+  %li
+    =link_to "CONTACT", "#"
+- else
+  %li
+    =link_to "MY EXERCISES", user_exercises_path(current_user.id)
+  %li
+    =link_to "LOGOUT", destroy_user_session_path, :method => :delete, :confirm => "Are you sure you wish to log out?"

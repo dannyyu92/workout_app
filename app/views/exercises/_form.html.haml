@@ -1,4 +1,4 @@
-= form_for @exercise do |e|
+= form_for [current_user, @exercise] do |e|
   %p
     = e.label :name
     = e.text_field :name, class: "form-control", style: "width:400px"
@@ -18,4 +18,4 @@
         = builder.text_field :weight, class: "form-control", style: "width:400px"
   %p
     = e.submit "Submit", :class => "btn btn-default btn-md"
-    = link_to "Back", exercises_path, class:"btn btn-default btn-md"
+    = link_to "Back", user_exercises_path, class:"btn btn-default btn-md"
