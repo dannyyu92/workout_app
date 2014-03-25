@@ -20,11 +20,12 @@ Testing:
 
 Other:
 * HAML
+* Figaro for easy ENV var handling
+* Devise for multiple users
 
 Soon to add:
 ------------------------
 
-* Use Devise to enable multiple users
 * Omniauth facebook login
 * Allow data to change dynamically on screen
 * Stripe billing & donations page
