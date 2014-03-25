@@ -11,6 +11,7 @@ gem 'sass', '3.2.13'
 gem 'font-awesome-rails'
 gem 'stripe'
 gem 'devise'
+gem 'figaro'
 
 group :development, :test do
   gem 'rails_layout'
