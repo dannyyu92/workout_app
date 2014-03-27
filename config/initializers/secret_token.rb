@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-WorkoutApp::Application.config.secret_key_base = '4ff76406de2b8781f6e9f4a3df489e0a10dc51e12a121086daa9e449cfe9c88ec5273947f703d514a72a4c1543cda6e2ba76945acff1e25a1b66d637ded63327'
+WorkoutApp::Application.config.secret_key_base = ENV["RAILS_SECRET_TOKEN"]
