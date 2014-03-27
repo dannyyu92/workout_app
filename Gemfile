@@ -2,22 +2,31 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
-#static pages
+# Static pages
 gem 'high_voltage', '~> 2.1.0'
-gem 'haml'
-gem 'haml-rails'
+
+# Front End
 gem 'bootstrap-sass'
 gem 'sass', '3.2.13'
 gem 'font-awesome-rails'
-gem 'stripe'
+
+# User auth
 gem 'devise'
+gem 'omniauth-facebook'
+
+# Other
+gem 'haml'
+gem 'haml-rails'
+gem 'stripe'
+
 gem 'figaro'
 
 group :development, :test do
   gem 'rails_layout'
   gem 'sqlite3', '1.3.8'
-  #mute asset pipeline
+  # Mute asset pipeline
   gem 'quiet_assets'
+  # Testing/debugging purposes
   gem 'rspec-rails'
   gem 'capybara'
   gem 'better_errors'

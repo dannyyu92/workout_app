@@ -9,4 +9,4 @@
   %li
     =link_to "MY EXERCISES", user_exercises_path(current_user.id)
   %li
-    =link_to "LOGOUT", destroy_user_session_path, :method => :delete, :confirm => "Are you sure you wish to log out?"
+    =link_to "LOGOUT", destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure you wish to log out?" } 
