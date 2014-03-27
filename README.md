@@ -22,11 +22,11 @@ Other:
 * HAML
 * Figaro for easy ENV var handling
 * Devise for multiple users
+* Omniauth facebook login
 
 Soon to add:
 ------------------------
 
-* Omniauth facebook login
 * Allow data to change dynamically on screen
 * Stripe billing & donations page
 * Backend API
