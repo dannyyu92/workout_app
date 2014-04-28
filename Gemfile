@@ -29,6 +29,8 @@ group :development, :test do
   # Testing/debugging purposes
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'guard-rspec'
+  gem 'factory_girl_rails'
   gem 'better_errors'
 end
 
